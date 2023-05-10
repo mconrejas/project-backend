@@ -19,6 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// posts endpoint
-Route::get('/posts', [PostsController::class, 'index']);
+
 
