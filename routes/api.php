@@ -2,8 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DeviceController;
-use App\Http\Controllers\dummyAPI;
+use App\Http\Controllers\UsersController;
+use app\Http\Controllers\dummyAPI;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("list",[DeviceController::class,'list']);
-Route::get("data",[dummyAPI::class, 'getDAta']);
+Route::get("list",[UsersController::class,'list']);
+Route::get("data",[dummyAPI::class,'getDAta']);
