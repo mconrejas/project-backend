@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -16,8 +16,18 @@ use App\Http\Controllers\PostsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('User');
 });
 
+Route::get('about', [UserController::class, 'show']);
 
+
+Route::controller(UserController::class)->name('user.')->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('{id}', 'show')->name('show');
+    Route::post('', 'store')->name('store');
+    Route::put('{id}', 'update')->name('update');
+    Route::delete('{id}', 'delete')->name('delete');
+    
+});
 
