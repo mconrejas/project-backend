@@ -40,7 +40,7 @@ class UserController extends Controller
                
             
 
-            return view('edit-user', ['todo' => $user->find($id)]);
+            return view('edit-user', ['user' => $user->find($id)]);
         } catch (\Throwable $th) {
             throw $th;
         }
