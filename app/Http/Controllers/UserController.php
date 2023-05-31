@@ -11,9 +11,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         try {
-            $user = new User();
+            $User = new User();
 
-            return view('user', ['user' => $user->get()]);
+            return view('User', ['User' => $User->get()]);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -22,11 +22,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
-            $user = new User();
-            $user->fill($request->all())
+            $User = new User();
+            $User->fill($request->all())
                 ->save();
 
-            return redirect()->route('user.index', ['user' => $user->get()]);
+            return redirect()->route('User.index', ['User' => $User->get()]);
             // return response('Saved successfully.');
         } catch (\Throwable $th) {
             throw $th;
@@ -36,11 +36,11 @@ class UserController extends Controller
     public function show(Request $request, $id)
     {
         try {
-            $user = new User;
+            $User = new User;
                
             
 
-            return view('edit-user', ['user' => $user->find($id)]);
+            return view('edit-user', ['User' => $User->find($id)]);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -49,8 +49,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $user = new User();
-            $user->find($id)
+            $User = new User();
+            $User->find($id)
                 ->fill($request->all())
                 ->save();
 
@@ -63,8 +63,8 @@ class UserController extends Controller
     public function destroy (Request $request, $id)
     {
         try {
-            $user = new User();
-            $user ->delete($id);
+            $User = new User();
+            $User ->delete($id);
          
             
             return response('Deleted successfully.');
