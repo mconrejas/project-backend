@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('about', [UserController::class, 'show']);
 
 
-Route::controller(UserController::class)->name('user.')->group(function () {
+Route::controller(UserController::class)->name('User.')->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('{id}', 'show')->name('show');
     Route::post('', 'store')->name('store');
